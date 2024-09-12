@@ -32,7 +32,9 @@ const UserPayment = () => {
 
         <Button1 className="w-full mt-6">Paid!</Button1>
 
-        <p></p>
+        <p className="italic mt-2 text-center">
+          Only click after ensuring the Transactions was successfully executed!{" "}
+        </p>
       </Card>
     </div>
   );
