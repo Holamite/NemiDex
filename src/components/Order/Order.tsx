@@ -2,10 +2,19 @@
 import Card from "@/app/helpers/Card";
 import Image from "next/image";
 
-const Order = () => {
+export interface Order {
+  className?: string;
+  onClick?: () => void;
+}
+
+const Order = ({ ...props }: Order) => {
+  const handleClick = () => {
+    props.onClick?.();
+  };
+
   return (
     <>
-      <Card>
+      <Card className={`mb-4 ${props.className}`} onClick={handleClick}>
         <div className="flex items-center">
           <div className="flex-shrink-0">
             <Image

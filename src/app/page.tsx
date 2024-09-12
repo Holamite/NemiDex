@@ -1,12 +1,14 @@
 "use client";
 import Order from "@/components/Order/Order";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Card from "./helpers/Card";
 import { useState } from "react";
+import order from "./order/[id]/page";
 
 export default function Home() {
   const [selectedCountry, setSelectedCountry] = useState("");
+  const route = useRouter();
 
   const countries = [
     "United States",
@@ -21,7 +23,7 @@ export default function Home() {
     // Add more countries as needed
   ];
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setSelectedCountry(e.target.value);
   };
   const search = useSearchParams();
@@ -38,6 +40,10 @@ export default function Home() {
       param: "Buy",
     },
   ];
+
+  const handleClick = (e: any) => {
+    route.push(`../order/${e}`);
+  };
 
   return (
     <>
@@ -64,7 +70,7 @@ export default function Home() {
 
             <div className="mb-4 flex flex-col gap-2 items-center">
               <p>
-                <span className="text-[#FFAC1C]">+</span> Create Order
+                <span className="text-hero">+</span> Create Order
               </p>
 
               <div className="w-full max-w-xs">
@@ -73,7 +79,7 @@ export default function Home() {
                   name="country"
                   value={selectedCountry}
                   onChange={handleChange}
-                  className="block w-full p-2 border bg-black border-gray-800 rounded-md shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm"
+                  className="block w-full p-2 border bg-white border-gray-800 rounded-md shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm"
                 >
                   <option className="bg-[#0000]" value="" disabled>
                     Choose a country
@@ -89,7 +95,13 @@ export default function Home() {
           </div>
 
           <div>
-            <Order />
+            {Array.from({ length: 5 }).map((_: any, index) => (
+              <Order
+                key={_}
+                className="cursor-pointer"
+                onClick={() => handleClick(index)}
+              />
+            ))}
           </div>
         </Card>
       </div>
