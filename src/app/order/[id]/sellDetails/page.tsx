@@ -1,4 +1,5 @@
 "use client";
+import Button1 from "@/app/helpers/Button1";
 import Card from "@/app/helpers/Card";
 import React from "react";
 
@@ -23,10 +24,8 @@ const page = () => {
             </div>
           </div>
 
-          <div className="flex align-center justify-center mb-6">
-            <p className="font-2xl mt-4 text-center border-2 rounded-full border-hero px-4 py-2">
-              Buy
-            </p>
+          <div className="flex align-center justify-center my-6">
+            <Button1>Sell</Button1>
           </div>
 
           <Card>

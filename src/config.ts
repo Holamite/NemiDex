@@ -1,9 +1,9 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { base } from "viem/chains";
+import { sepolia } from "viem/chains";
 
 export const config = getDefaultConfig({
   appName: "NemiDex",
   projectId: "YOUR_PROJECT_ID",
-  chains: [base],
+  chains: [sepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
