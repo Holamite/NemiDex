@@ -14,7 +14,7 @@ const page = () => {
           <div>
             <div className="flex item-center justify-between">
               <p>Price:</p>
-              <p className="font-mono">$0.00</p>
+              <p className="font-mono">$0.30</p>
             </div>
             <div className="flex item-center justify-between">
               <p>Quantity:</p>
